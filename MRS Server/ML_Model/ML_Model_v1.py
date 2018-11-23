@@ -88,15 +88,4 @@ y = json.loads(a)
 def a():
     return y
 
-def get_info():
-    search = tmdb.Search()
-    response = search.movie(query='The Bourne Supremacy')
-    return response
 
-#get_info('Frozen')
-
-#Poster Link
-# https://image.tmdb.org/t/p/original/dIaff79mnD2rf1LGkUfWYyZUSZj.jpg
-
-
-    
