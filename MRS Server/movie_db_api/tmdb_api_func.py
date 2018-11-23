@@ -50,3 +50,48 @@ def get_youtube_video():
 #get_info()
 #get_movie_details()
 #get_youtube_video()
+    
+  movie = tmdb.Genres()
+    #response = movie.info()
+response = movie.movie_list()
+for s in response.genres:
+    print(s["name"])
+    #response["genres"][0]["name"]
+    
+    
+    
+res = json.dumps(response)
+res
+res["genres"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
