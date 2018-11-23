@@ -46,23 +46,22 @@ def get_youtube_video():
     res = json.dumps(b)
     return res
 
+
+def get_genres(gen_id):
+      movie = tmdb.Genres()
+      response = movie.movie_list()
+      for s in movie.genres:
+          if s["id"] == gen_id:
+              return s["name"]
+  
+    
+    
 # For Testing
 #get_info()
 #get_movie_details()
 #get_youtube_video()
     
-  movie = tmdb.Genres()
-    #response = movie.info()
-response = movie.movie_list()
-for s in response.genres:
-    print(s["name"])
-    #response["genres"][0]["name"]
-    
-    
-    
-res = json.dumps(response)
-res
-res["genres"]
+
 
 
 
