@@ -1,0 +1,218 @@
+.turuncubaslik-bold {
+	color:#333;
+font-size:14px;
+ border-bottom: 1px dotted #000;
+    text-decoration: none;	
+	}
+/******keyboard*******/
+
+ul.keyboard {
+  position: fixed;
+  list-style-type: none;
+  font-family: verdana;
+  /* background-color: #fff; */
+  border-radius: 5px;
+  padding-top: 1%;
+  width: 98%;
+  height: 50%;
+}
+
+.keyboard li {
+  cursor: pointer;
+ 
+  float: left;
+  height: 13%;
+ /** margin: auto; **/
+  line-height: 44px;
+  padding: 2px;
+  margin: 1.3% 0.6% 0.6% 0.2%;
+  /* background-color: #ddd; */
+  color: black;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1.5vw;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.char {
+    width: 5.75%;
+    /* -webkit-transition: background-color 100ms; */
+    background: url(../img/button/keycharbtn.png) no-repeat;
+    background-size: 100%;
+}
+
+.tab {
+  width: 20%;
+  background: url(../img/button/newdel.png) no-repeat;
+  background-size: 100%;
+  background-size: 350px 56px;
+}
+
+.at {
+  width: 5.75%;
+}
+
+.last {
+  margin-right: 0%;
+}
+
+.backspace {
+  width: 14%;
+  background: url(../img/button/newdel.png) no-repeat;
+  background-size: 100%;
+  background-size: 250px 56px;
+}
+
+.capslock {
+  width: 12%;
+  background: url(../img/button/newdel.png) no-repeat;
+  background-size: 100%;
+  background-size: 210px 56px;
+}
+
+.capslock.on {
+	/* background-color: #CA4200; */
+}
+
+.return {
+  width: 14%;
+}
+
+.shift {
+  width: 7.2%;
+}
+
+.last {
+  margin-right: 0;
+}
+
+.space {
+  width: 98%;
+  background: url(../img/button/newspc.png) no-repeat;
+  background-size: 100%;
+  background-size: 2000px 56px;
+}
+
+.keyboard .touch {
+	/* background-color: #CA4200; */
+}
+
+
+input{
+  position: fixed;
+  left: 63%;
+  bottom: 6%;
+  height: 20%;
+  width: 33%;
+
+  font-size:54px;
+}
+
+.input1{
+    position: fixed;
+    left: 13%;
+    top: 27.5%;
+    height: 9%;
+    width: 5%;
+    font-size: larger;
+    font-size:74px;
+    background-color: transparent;
+    border: transparent;
+    border-color: transparent;
+    outline: none;
+    color: white
+}
+
+
+.input2{
+  position: fixed;
+  left: 23%;
+  top: 27.5%;
+  height: 9%;
+  width: 30%;
+  font-size: larger;
+  font-size:74px;
+  background-color: transparent;
+  border: transparent;
+  border-color: transparent;
+  outline: none;
+  color: white
+}
+
+.input3{
+  position: fixed;
+  left: 57.3%;
+  top: 27.5%;
+  height: 9%;
+  width: 30%;
+  font-size: larger;
+  font-size:74px;
+  background-color: transparent;
+  border: transparent;
+  border-color: transparent;
+  outline: none;
+  color: white
+}
+
+.otpinput{
+  position: fixed;
+  left: 29%;
+  top: 26%;
+  height: 9%;
+  width: 42%;
+  font-size: larger;
+  font-size:74px;
+  background-color: transparent;
+  border: transparent;
+  border-color: transparent;
+  outline: none;
+  color: white
+}
+
+
+.otptable{
+  position: fixed;
+  left: 29%;
+  top: 26%;
+  height: 9%;
+  width: 42%;
+}
+
+
+.footer {
+  position: fixed;
+  left: 63%;
+  bottom: 6%;
+  height: 20%;
+  width: 33%;
+  text-align: center;
+  background:transparent; 
+  color:transparent;
+  cursor: default;
+  border-color:transparent;
+  border: transparent;
+  outline: none;
+}
+
+
+
+.footers {
+  position: fixed;
+  left: 79%;
+  bottom: 0%;
+  height: 19%;
+  width: 21%;
+  text-align: center;
+  background: transparent;
+  color: transparent;
+  cursor: default;
+  border-color: transparent;
+  border: transparent;
+  outline: none;
+}

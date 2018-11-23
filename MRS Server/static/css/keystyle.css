@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+.rotate {
+  display: none;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  width: 400px;
+  height: 50px;
+  margin-left: -200px;
+  margin-top: -25px;
+}
+.keypadwrapper {
+  text-align: center;
+  width: 100%;
+  color: black;
+}
+.keypadwrapper .inputwrapper {
+  margin-left: 6cm;
+  margin-right: 6.2cm;
+  margin-top: 5.4cm;
+  line-height: 0.61em;
+  vertical-align: middle;
+}
+.keypadwrapper .numberinput {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  /* border: 1px solid #fff; */
+  margin-right: 0.8%;
+  margin-left: 1%;
+  font-size: 4em;
+  color: white;
+}
+
+.keypadwrapper .keypad .numberline {
+  width: 100%;
+}
+.keypadwrapper .keypad #linefour {
+  position: absolute;
+  bottom: 15%;
+}
+.keypadwrapper .keypad #linethree {
+  position: absolute;
+  bottom: 25%;
+}
+.keypadwrapper .keypad #linetwo {
+  position: absolute;
+  bottom: 35%;
+}
+.keypadwrapper .keypad #lineone {
+  position: absolute;
+  bottom: 45%;
+}
+.keypadwrapper .keypad .content {
+  display: inline-block;
+  margin: 0 1%;
+}
+.keypadwrapper .keypad .content div {
+  width: 8em;
+  height: 6em;
+  text-align: center;
+  /* border: 1px solid #fff; */
+  /* border-radius: 70px; */
+  display: inline-block;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: url('../img/button/keycharbtn.png');
+  background-repeat: no-repeat;
+  outline: none
+}
+.keypadwrapper .keypad .content div span:nth-child(1) {
+    display: block;
+    font-size: 2em;
+    height: 1em;
+    margin-top: 6px;
+}
+.keypadwrapper .keypad .content div span:nth-child(2) {
+  font-size: 0.6em;
+}
+.keypadwrapper .keypad .content div:hover {
+  background-color:transparent;
+  color: #000;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+.nocircle {
+  width: auto !important;
+  border: none !important;
+  height: auto !important;
+}
+@media all and (max-width: 470px) {
+  .content {
+    margin: 0 5% !important;
+  }
+}
+@media all and (max-width: 350px) {
+  .content {
+    margin: 0 2% !important;
+  }
+}
+@media all and (max-height: 470px) {
+  #linefour {
+    bottom: 2% !important;
+  }
+  #linethree {
+    bottom: 23% !important;
+  }
+  #linetwo {
+    bottom: 43% !important;
+  }
+  #lineone {
+    bottom: 63% !important;
+  }
+}
