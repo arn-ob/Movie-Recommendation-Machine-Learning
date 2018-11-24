@@ -66,15 +66,24 @@ indices = pd.Series(smd.index, index=smd['title'])
 
 
 def get_recommendations(title):
-    idx = indices[title]
+    idx = indices['Frozen']
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:31]
     movie_indices = [i[0] for i in sim_scores]
-    return titles.iloc[movie_indices]
+    #s = titles.iloc[movie_indices]
+    s =  movie_indices 
+#    # Getting Ready for the json file
+#    s = s.to_json()
+    s = json.dumps(s)
+#    s = s.replace("\\", '')
+#    s = s.replace("\'", '"')
+#    s = s.replace("'", '')
+    return s
 
 
-s = get_recommendations('Forrest Gump').head(10)
+# Testing
+# get_recommendations('Frozen')
 
 
 def poster(ids):
@@ -82,10 +91,8 @@ def poster(ids):
     print(response['poster_path'])
 
 # convert to json
-a = s.to_json(orient='records')
-y = json.loads(a)
+#a = s.to_json(orient='records')
+#y = json.loads(a)
 
-def a():
-    return y
 
 

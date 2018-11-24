@@ -26,9 +26,9 @@ def get_info():
 
 
   
-def get_movie_details():
+def get_movie_details(movie_id):
     # full details get    
-    movie = tmdb.Movies(603)
+    movie = tmdb.Movies(movie_id)
     response = movie.info()
     b = response
     res = json.dumps(b)
@@ -37,9 +37,9 @@ def get_movie_details():
 
 
 
-def get_youtube_video():
+def get_youtube_video(movie_id):
     # full details get    
-    movie = tmdb.Movies(603)
+    movie = tmdb.Movies(movie_id)
     #response = movie.info()
     response = movie.videos()
     b = response
@@ -49,7 +49,7 @@ def get_youtube_video():
 
 def get_genres(gen_id):
       movie = tmdb.Genres()
-      response = movie.movie_list()
+      responses = movie.movie_list()
       for s in movie.genres:
           if s["id"] == gen_id:
               return s["name"]
