@@ -22,7 +22,7 @@ export class ShowComponent implements OnInit {
       response => {
         console.log(response.json());
         this.list = response.json();
-        this.get_movie_name();
+        this.getPrice();
       },
       err => {
         console.log(err);
@@ -53,24 +53,94 @@ export class ShowComponent implements OnInit {
         console.log(err);
       }).then(
         res => {
-          this.se();
         });
-        this.getPrice();
+    this.getPrice();
   }
 
   getPrice() {
-    const a = { 'id': String(this.list[3]) };
-    this.http.post('http://localhost:3100/return_name_from_id2', a).subscribe(
-        response => {
-          console.log(response.text());
-        },
-        err => {
-          console.log(err);
-        });
+    const a = [{ 'id': this.list[1] }];
+    // this.http.post('http://localhost:5000/get_details', a).subscribe(
+    //   response => {
+    //     console.log(response.json());
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   });
+
+    // setTimeout(() => {
+    //   const ase = [{ 'id': this.list[2] }];
+    //   this.http.post('http://localhost:5000/get_details', ase).subscribe(
+    //     response => {
+    //       console.log(response.json());
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     });
+    // }, 300);
+
+    // setTimeout(() => {
+    //   const ase = [{ 'id': this.list[3] }];
+    //   this.http.post('http://localhost:5000/get_details', ase).subscribe(
+    //     response => {
+    //       console.log(response.json());
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     });
+    // }, 300);
+
+    // setTimeout(() => {
+    //   const ase = [{ 'id': this.list[4] }];
+    //   this.http.post('http://localhost:5000/get_details', ase).subscribe(
+    //     response => {
+    //       console.log(response.json());
+    //       if (response.json().status_code === 34) {
+    //         console.log('not fund');
+    //       }
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     });
+    // }, 300);
+
+    // setTimeout(() => {
+    //   const ase = [{ 'id': this.list[5] }];
+    //   this.http.post('http://localhost:5000/get_details', ase).subscribe(
+    //     response => {
+    //       console.log(response.json());
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     });
+    // }, 300);
+
+
+    // setTimeout(() => {
+    this.se(30).then(res =>
+      console.log(res)).then(
+        () => {
+          this.se(28).then(
+            ress => {
+              console.log(ress);
+            }).then(
+              () => {
+                this.se(1120).then(
+                  (res) => {
+                    console.log(res);
+                  }
+                );
+              });
+        }
+      );
+    // }, 300);
   }
 
-  se() {
-    console.log('a');
+  se(a) {
+    const ases = [{ 'id': a }];
+    return this.http.post('http://localhost:5000/get_details', ases).toPromise().
+      then((response) => {
+        return response.json();
+      });
   }
 
 }

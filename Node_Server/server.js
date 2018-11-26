@@ -3,7 +3,8 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var cors = require('cors');
-var tmdb = require('./core/tmdb');
+var tmdbTest = require('./core/tmdb');
+var tmdb_Details = require('./core/tmdb-get-details');
 
 // App init
 var app = express();
@@ -21,8 +22,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'dist'))); // For deploy the project
 
 
+// Route System
+app.get('/test', tmdbTest.tmdbReq);
+app.post('/get_details', tmdb_Details.tmdb_get_details);
 
-app.get('/', tmdb.tmdbReq);
+
 
 app.use(function (req, res) {
     console.log('Page not Found 404');

@@ -18,7 +18,7 @@ var options_for_search = {
 
 exports.CustomOPTQueryy = function (q) {
     options.qs = q;
-}
+};
 
 exports.tmdbReq = function (req, res) {
     request(option.for_search, function (error, response, body) {
