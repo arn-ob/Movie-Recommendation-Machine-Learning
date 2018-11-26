@@ -1,9 +1,5 @@
-import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'q';
-import { Observable } from 'rxjs';
-
-
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-show',
@@ -12,21 +8,21 @@ import { Observable } from 'rxjs';
 })
 export class ShowComponent implements OnInit {
   list = [];
-  lists = [];
   constructor(
     private http: Http
   ) { }
 
   ngOnInit() {
-    this.get_movie_list();
+    this.get_movie_lisst();
   }
 
-  get_movie_list() {
-    this.http.get('http://localhost:4000/list').subscribe(
+  get_movie_lisst() {
+    console.log('log');
+    this.http.get('http://localhost:3000/lists').subscribe(
       response => {
         console.log(response.json());
         this.list = response.json();
-        this.haha();
+        this.get_movie_name();
       },
       err => {
         console.log(err);
@@ -34,26 +30,21 @@ export class ShowComponent implements OnInit {
   }
 
 
-  async get_movie_name(as) {
-
-    const a = { 'id': String(as) };
-    await this.http.post('http://localhost:4000/return_name_from_id', a).toPromise()
-    .then(response => {
-        return response.json();
+   get_movie_name() {
+    const arr = [];
+    for (let i = 0; i < 3; i++) {
+      arr.push({ 'id': String(this.list[i]) });
+    }
+    console.log(arr);
+     this.http.post('http://localhost:3000/return_name_from_id', arr).subscribe(
+      response => {
+        console.log(response.text());
         // this.list = response.json()[0];
       },
       err => {
         console.log(err);
       });
-    setTimeout(() => { this.haha(); }, 10000);
-
   }
 
-  haha() {
-    for (let i = 0; i < this.list.length; i++) {
-      console.log(this.get_movie_name(this.list[i]));
-    }
-    console.log('finish');
-  }
 }
 

@@ -21,19 +21,31 @@ def index():
    return a
 
 
-@app.route('/list')
-def list():
+@app.route('/lists')
+def lists():
    return ml_model_v1.get_recommendations('Frozen')
 
 @app.route('/return_name_from_id', methods = ['POST'])
 def return_name_from_id():
     content = json.dumps(request.json)
-    
-    a = re.findall(r'\d+', content)
-    a = str(a)
-    a =  a.replace("['", "")
+    a = json.loads(str(content))
+#    a = int(a[1]["id"])
+    arr = []
+    for s in a: 
+        try:
+#            arr.insert(str[a["id"]])
+#            arr.append("aa")
+            arr.append({ s["id"]: tmdb_api.get_movie_details(int(s["id"])) })
+        except (Exception):
+            pass    
+#    a = re.findall(r'\d+', conten
+#    a = str(a)
+#    a =  a.replace("['", "")
     # return a
-    return tmdb_api.get_movie_details(a)
+#     arr = "'" + arr + "'"
+    contents = json.dumps(json.load(arr))
+#    contents = contents.replace('\"', '"')
+    return contents
     
     
 #@app.route('/result',methods = ['POST', 'GET'])
@@ -44,4 +56,4 @@ def return_name_from_id():
 
 
 if __name__ == '__main__':
-   app.run(debug = True, port=4000)
+   app.run(debug = True, port=3000)

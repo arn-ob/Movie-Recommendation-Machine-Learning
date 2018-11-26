@@ -25,7 +25,7 @@ const appRoutes: Routes = [
       appRoutes,
       {
         enableTracing: false,
-        useHash: true
+        // useHash: true
       },
     )
   ],

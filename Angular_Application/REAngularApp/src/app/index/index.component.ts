@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
 
   // get list from the server
   get_movie_list() {
-    this.http.get('http://localhost:3000/index').subscribe(
+    this.http.get('http://localhost:3000/lists').subscribe(
       response => {
         console.log(response.json());
         this.list = response.json()[0];
