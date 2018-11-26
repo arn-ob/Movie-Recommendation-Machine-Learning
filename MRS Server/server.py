@@ -30,22 +30,30 @@ def return_name_from_id():
     content = json.dumps(request.json)
     a = json.loads(str(content))
 #    a = int(a[1]["id"])
-    arr = []
-    for s in a: 
-        try:
-#            arr.insert(str[a["id"]])
-#            arr.append("aa")
-            arr.append({ s["id"]: tmdb_api.get_movie_details(int(s["id"])) })
-        except (Exception):
-            pass    
+    try:
+         return tmdb_api.get_movie_details(int(a[0]["id"]))
+    except (Exception):
+        return "ignore"
+
+
+@app.route('/return_name_from_id2', methods = ['POST'])
+def return_name_from_id2():
+    content = json.dumps(request.json)
+    a = json.loads(str(content))
+#    a = int(a[1]["id"])
+    try:
+         return tmdb_api.get_movie_details(int(a[0]["id"]))
+    except (Exception):
+        return "ignore"
+
+    
 #    a = re.findall(r'\d+', conten
 #    a = str(a)
 #    a =  a.replace("['", "")
     # return a
 #     arr = "'" + arr + "'"
-    contents = json.dumps(json.load(arr))
-#    contents = contents.replace('\"', '"')
-    return contents
+#    contents = json.dumps(str(arr))
+    
     
     
 #@app.route('/result',methods = ['POST', 'GET'])
@@ -56,4 +64,4 @@ def return_name_from_id():
 
 
 if __name__ == '__main__':
-   app.run(debug = True, port=3000)
+   app.run(debug = True, port=3100)

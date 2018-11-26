@@ -1,0 +1,17 @@
+{
+  "name": "re-node-server",
+  "version": "1.1.0",
+  "description": "Is a server for RE",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "stupid@arnob",
+  "license": "ISC"
+}
