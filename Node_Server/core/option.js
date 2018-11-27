@@ -1,3 +1,5 @@
+var key =  "52e1a7b21533b5e1f51c02c04d14b6b4";
+
 exports.for_search = {
     method: 'GET',
     url: 'https://api.themoviedb.org/3/search/movie',
@@ -7,7 +9,7 @@ exports.for_search = {
         "page": "1",
         "query": "Movie",
         "language": "en-US",
-        "api_key": "52e1a7b21533b5e1f51c02c04d14b6b4"
+        "api_key": key
     },
     body: '{}'
 };
@@ -18,7 +20,8 @@ exports.for_get_movie_details = {
     url: 'https://api.themoviedb.org/3/movie/',
     qs: {
         language: 'en-US',
-        api_key: '52e1a7b21533b5e1f51c02c04d14b6b4'
+        api_key: key
     },
     body: '{}'
 };
+
