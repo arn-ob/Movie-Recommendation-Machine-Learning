@@ -46,7 +46,6 @@ export class IndexComponent implements OnInit {
 
   // test id
   show(a) {
-    console.log(a);
     localStorage.setItem('id', a);
     this.route.navigate(['/show']);
   }

@@ -14,15 +14,19 @@ export class ShowComponent implements OnInit {
   recomendation: { [k: string]: any } = {};
   new_recomendation = [];
   movie_rec = false;
-
   loading = true;
+  no_rec = false;
+
   constructor(
     private http: Http,
     private route: Router
   ) { }
 
   ngOnInit() {
-    this.movie_rec = false;
+    this.movie_rec = true;
+    this.loading = true;
+    this.no_rec = false;
+
     this.new_recomendation = [];
     this.fixed_title_name = [];
     this.list = [];
@@ -52,11 +56,13 @@ export class ShowComponent implements OnInit {
     const jss = { 'movie_name': String(this.title) };
     this.http.post('http://localhost:3100/movie_details', jss).subscribe(
       response => {
-        // console.log(response.json());
+        // console.log(response.ok);
         this.recomendation = response.json();
         this.get_fix_Index_Issue();
       },
       err => {
+        this.no_rec = true;
+        console.log('No Recomendation');
         console.log(err);
       });
   }
@@ -92,7 +98,7 @@ export class ShowComponent implements OnInit {
                       this.new_recomendation.push(res8.results[0]);
                       this.se(this.fixed_title_name[8].title).then(res9 => {
                         this.new_recomendation.push(res9.results[0]);
-                        this.movie_rec = true;
+                        this.movie_rec = false;
                         // console.log(this.new_recomendation);
                       });
                     });

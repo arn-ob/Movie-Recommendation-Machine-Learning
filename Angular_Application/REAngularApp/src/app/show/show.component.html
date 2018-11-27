@@ -1,6 +1,7 @@
-<div class="jumbotron text-center mb-3" *ngIf="loading">
+<div class="jumbotron text-center mb-3" style="background-color: #ecf0f1" *ngIf="loading">
   <div class="container">
-    <img src="../../assets/source.gif">
+    <img src="http://localhost:5000/source.gif">
+    <p class="ml-5">loading ...</p>
   </div>
 </div>
 
@@ -19,7 +20,8 @@
       <div class="col-4">
         <img *ngIf="list.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/original{{list.poster_path}}"
           width=300px height=500px>
-        <img *ngIf="!list.poster_path" class="card-img-top" src="../../assets/Image-not-found.gif" width=300px height=500px>
+        <img *ngIf="!list.poster_path" class="card-img-top" src="http://localhost:5000/Image-not-found.gif" width=300px
+          height=500px>
       </div>
       <div class="col">
         <div class="container">
@@ -39,26 +41,36 @@
 
 
 
-  <div class="album py-5 bg-light" *ngIf="movie_rec">
+  <div class="album py-5 bg-light" *ngIf="!no_rec">
 
-    <div class="container mb-3">
-      <h2>Additiona Recomendation </h2>
+    <div class="jumbotron text-center mb-3" *ngIf="movie_rec" style="background-color: #fafafa">
+      <div class="container">
+        <img src="http://localhost:5000/matrix.gif">
+        <p>Processing Recommendation</p>
+      </div>
+
     </div>
 
-    <div class="album py-5 bg-light mt-5">
-      <div class="container">
-        <div class="row" *ngIf="!loading">
-          <div class="col-md-4" *ngFor="let res of new_recomendation">
-            <div class="card mb-4 shadow-sm" (click)="show(res.id)">
-              <img *ngIf="res.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/original{{res.poster_path}}"
-                width=300px height=500px>
-              <img *ngIf="!res.poster_path" class="card-img-top" src="../../assets/Image-not-found.gif" width=300px
-                height=500px>
-              <div class="card-body">
-                <p class="card-text">{{res.title}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <small class="text-muted">{{res.vote_average}}</small>
-                  <small class="text-muted">{{res.release_date}}</small>
+    <div *ngIf="!movie_rec">
+      <div class="container mb-3">
+        <h2>Additiona Recomendation </h2>
+      </div>
+
+      <div class="album py-5 bg-light mt-5">
+        <div class="container">
+          <div class="row" *ngIf="!loading">
+            <div class="col-md-4" *ngFor="let res of new_recomendation">
+              <div class="card mb-4 shadow-sm" (click)="show(res.id)">
+                <img *ngIf="res.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/original{{res.poster_path}}"
+                  width=300px height=500px>
+                <img *ngIf="!res.poster_path" class="card-img-top" src="http://localhost:5000/Image-not-found.gif"
+                  width=300px height=500px>
+                <div class="card-body">
+                  <p class="card-text">{{res.title}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">{{res.vote_average}}</small>
+                    <small class="text-muted">{{res.release_date}}</small>
+                  </div>
                 </div>
               </div>
             </div>
@@ -66,6 +78,14 @@
         </div>
       </div>
     </div>
-
   </div>
+
+  <div class="jumbotron jumbotron-fluid mt-3" *ngIf="no_rec">
+    <div class="container">
+      <h1 class="display-4">Sorry No Recommendation Found From Dataset</h1>
+      <p class="lead">This movie was not present in the dataset. No Recomendation can be made at this moment</p>
+    </div>
+  </div>
+
+
 </div>
