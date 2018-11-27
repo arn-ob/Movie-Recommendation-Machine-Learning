@@ -1,35 +1,18 @@
 var request = require("request");
+var option = require('./option');
 
-var a = 0;
-var options = {
-    method: 'GET',
-    url: 'https://api.themoviedb.org/3/movie/' + a,
-    qs: {
-        language: 'en-US',
-        api_key: '52e1a7b21533b5e1f51c02c04d14b6b4'
-    },
-    body: '{}'
-};
-
-exports.CustomOPTQueryy = function (q) {
-    options.qs = q;
-};
-
-function ins() {
-    console.log("Here");
-    a = 28;
-}
+// Selected Option 
+var selected_option = option.for_get_movie_details;
 
 exports.tmdb_get_details = function (req, res) {
     var input = req.body;
-    console.log(input);
-        options.url = 'https://api.themoviedb.org/3/movie/' + input[0]['id'];
-        console.log(options.url);
-        request(options, function (error, response, body) {
-            if (error) throw new Error(error);
+    selected_option.url = selected_option.url + input.movie_id;
+    console.log("Request URL: " + selected_option.url);
+    request(selected_option, function (error, response, body) {
+        if (error) throw new Error(error);
 
-            res.send(body);
+        res.send(body); // Send Details
 
-        });
+    });
 
 };

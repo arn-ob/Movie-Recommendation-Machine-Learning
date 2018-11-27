@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'dist'))); // For deploy the project
 
 
 // Route System
-app.get('/test', tmdbTest.tmdbReq);
+app.post('/get_latest_movie', tmdbTest.tmdbReq);
 app.post('/get_details', tmdb_Details.tmdb_get_details);
 
 

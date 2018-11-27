@@ -65,25 +65,42 @@ indices = pd.Series(smd.index, index=smd['title'])
 
 
 
+def get_recommendations_by_title(title):
+    idx = indices['Frozen']
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:31]
+    movie_indices = [i[0] for i in sim_scores]
+    # titles.iloc[movie_indices]
+    s = movie_indices 
+    s = json.dumps(s)
+    return s
+
+def get_recommendations_by_id(ids):
+    idx = ids
+    sim_scores = list(enumerate(cosine_sim[idx]))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:31]
+    movie_indices = [i[0] for i in sim_scores]
+    s =  movie_indices 
+    s = json.dumps(s)
+    return s
+
+
 def get_recommendations(title):
     idx = indices['Frozen']
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:31]
     movie_indices = [i[0] for i in sim_scores]
-    #s = titles.iloc[movie_indices]
-    s =  movie_indices 
-#    # Getting Ready for the json file
-#    s = s.to_json()
-    s = json.dumps(s)
-#    s = s.replace("\\", '')
-#    s = s.replace("\'", '"')
-#    s = s.replace("'", '')
-    return s
+    print(titles.iloc[movie_indices])
 
 
+
+
+ 
 # Testing
-# get_recommendations('Frozen')
+
 
 
 def poster(ids):
