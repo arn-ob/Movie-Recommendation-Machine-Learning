@@ -16,7 +16,6 @@
  
   <div class="album py-5 bg-light mt-5">
     <div class="container">
-
       <div class="row" *ngIf="!loading">
         <div class="col-md-4" *ngFor="let res of list.results">
           <div class="card mb-4 shadow-sm" (click)="show(res.id)">

@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from threading import Timer
 from flask_cors import CORS
+import json
 
 # Model Import
 #import ML_Model.ML_Model_v1 as ml_model_v1
@@ -17,10 +18,12 @@ CORS(app)
 def index():
     return "index"
 
-@app.route('/movie_detail')
-def movie_detail():
-    return ml_model_v2.improved_recommendations("Batman Forever")
-
+@app.route('/movie_details', methods = ['POST'])
+def movie_details():
+    content = json.dumps(request.json)
+    a = json.loads(str(content))
+    return ml_model_v2.improved_recommendations(str(a["movie_name"]))
+    
 #@app.route('/get_req_title', methods = ['POST'])
 #def get_req():
 #    content = json.dumps(request.json)
@@ -36,4 +39,4 @@ def movie_detail():
 #    
 
 if __name__ == '__main__':
-   app.run(debug = True, port=3000)
+   app.run(debug = True, port=3100)

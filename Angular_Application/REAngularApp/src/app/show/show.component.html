@@ -1,184 +1,71 @@
-<div class="jumbotron text-center mt-3 mb-3">
+<div class="jumbotron text-center mb-3" *ngIf="loading">
   <div class="container">
-    <h1 class="jumbotron-heading">Movie Name</h1>
-    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-    <p class="lead text-muted">When a CIA operation to purchase classified Russian documents is blown by a rival agent,
-      who then shows
-      up in the sleepy seaside village where Bourne and Marie have been living. The pair run for their lives and
-      Bourne, who promised
-      retaliation should anyone from his former life attempt contact, is forced to once again take up his life as a
-      trained assassin to survive.</p>
-
+    <img src="../../assets/source.gif">
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <img src="https://image.tmdb.org/t/p/original/jXwZgmqOtsqsXuB9oGhocOAegCM.jpg" width=300px height=500px />
-    </div>
-    <div class="col-sm">
-      <div class="container">
-        <h3>Movie Name</h3>
-      </div>
-    </div>
-    <div class="col-sm">
-      One of three columns
+<div *ngIf="!loading">
+  <div class="jumbotron text-center mb-3">
+    <div class="container">
+      <h1 class="jumbotron-heading">{{list.title}}</h1>
+      <small class="form-text text-muted">{{list.original_title}}</small>
+      <p class="lead text-muted">{{list.overview}}</p>
+
     </div>
   </div>
-</div>
 
-<div class="container">
-  <h2>Additiona Recomendation </h2>
-</div>
-
-
-<div class="album py-5 bg-light">
-  <div class="container">
-
+  <div class="container mb-4">
     <div class="row">
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm" (click)="show(list.id)">
-          <!-- <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{list.poster_path}}" width=300px height=500px>-->
-          <div class="card-body"> 
-            <p class="card-text">{{list.title}}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted">{{list.vote_average}}</small>
-              <small class="text-muted">{{list.release_date}}</small>
-            </div>
-          </div>
+      <div class="col-4">
+        <img *ngIf="list.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/original{{list.poster_path}}"
+          width=300px height=500px>
+        <img *ngIf="!list.poster_path" class="card-img-top" src="../../assets/Image-not-found.gif" width=300px height=500px>
+      </div>
+      <div class="col">
+        <div class="container">
+          <p>Movie Name : {{list.title}}</p>
+          <p>Original Title : {{list.original_title}}<p>
+              <p>Overview : {{list.overview}}</p>
+              <p>Release Date : {{list.release_date}}</p>
+              <p>Runtime : {{list.runtime}}</p>
+              <p>Vote Average : {{list.vote_average}}</p>
+              <p>IMDB ID : {{list.imdb_id}}</p>
+              <p>ID : {{list.id}}</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
 
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
+
+  <div class="album py-5 bg-light" *ngIf="movie_rec">
+
+    <div class="container mb-3">
+      <h2>Additiona Recomendation </h2>
+    </div>
+
+    <div class="album py-5 bg-light mt-5">
+      <div class="container">
+        <div class="row" *ngIf="!loading">
+          <div class="col-md-4" *ngFor="let res of new_recomendation">
+            <div class="card mb-4 shadow-sm" (click)="show(res.id)">
+              <img *ngIf="res.poster_path" class="card-img-top" src="https://image.tmdb.org/t/p/original{{res.poster_path}}"
+                width=300px height=500px>
+              <img *ngIf="!res.poster_path" class="card-img-top" src="../../assets/Image-not-found.gif" width=300px
+                height=500px>
+              <div class="card-body">
+                <p class="card-text">{{res.title}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{res.vote_average}}</small>
+                  <small class="text-muted">{{res.release_date}}</small>
+                </div>
               </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-              </div>
-              <small class="text-muted">9 mins</small>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>

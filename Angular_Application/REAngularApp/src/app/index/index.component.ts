@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -12,22 +13,25 @@ export class IndexComponent implements OnInit {
   loading = true;
 
   constructor(
-    private http: Http
+    private http: Http,
+    private route: Router
   ) { }
 
   ngOnInit() {
+    localStorage.clear();
     this.get_movie_list();
   }
 
   // get list from the server
   get_movie_list() {
-    let a = Math.random() * 9 + 1;
-    if (a > 7) {
-      a = Math.random() * 9 + 1;
-      if (a > 7) {
-        a = 2;
+    let a = Math.random() * 99 + 100;
+    if (a > 400) {
+      a = Math.random() * 99 + 100;
+      if (a > 400) {
+        a = 320;
       }
     }
+    // a = 300;
     console.log(Number(a));
     this.http.post('http://localhost:5000/get_latest_movie', { 'page': Number(a) }).subscribe(
       response => {
@@ -43,5 +47,7 @@ export class IndexComponent implements OnInit {
   // test id
   show(a) {
     console.log(a);
+    localStorage.setItem('id', a);
+    this.route.navigate(['/show']);
   }
 }

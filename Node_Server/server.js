@@ -24,15 +24,14 @@ app.use(express.static(path.join(__dirname, 'dist'))); // For deploy the project
 
 // Route System
 app.post('/get_latest_movie', tmdbTest.tmdbReq);
-app.post('/get_details', tmdb_Details.tmdb_get_details);
+app.post('/get_details', tmdb_Details.tmdb_get_details_id);
+app.post('/get_details_title', tmdb_Details.tmdb_get_details_title);
 
 
 
 app.use(function (req, res) {
     console.log('Page not Found 404');
-    res.type('text/html');
-    res.status(404);
-    res.render("404");
+    res.send({"status": 404});
 });
 
 // run server
